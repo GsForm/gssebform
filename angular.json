@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bulma/css/bulma.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "GsForm"
+    }
+  },
+  "defaultProject": "GsForm",
+  "cli": {
+    "analytics": "705a8887-a1db-4c3b-8f82-5ca162507db3"
+  }
 }

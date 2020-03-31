@@ -1,0 +1,33 @@
+<ng-container [ngSwitch]="inputSetting.type">
+
+  <div class="field" *ngSwitchCase="'select'">
+    <label class="label" [for]="inputSetting.controlName"> 
+      {{ inputSetting.title }}
+    </label>
+    <div class="select is-fullwidth">
+      <select [formControl]="control" [id]="inputSetting.controlName">
+        <option> {{ inputSetting.placeholder }}</option>
+        <option *ngFor="let val of inputSetting.values">{{ val }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field" *ngSwitchCase="'radio'">
+    <label class="label" [for]="inputSetting.controlName"> 
+      {{ inputSetting.title }}
+    </label>    
+    <div class="control">
+      <div class="radio" *ngFor="let val of inputSetting.values">
+        <input 
+          type="radio" 
+          name="inputSetting.controlName" 
+          [id]="inputSetting.controlName"
+          [value]="val"
+          [formControl]="control"
+        >
+        {{ val }}
+      </div>
+    </div>
+  </div>
+
+</ng-container>

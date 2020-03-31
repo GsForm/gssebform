@@ -1,0 +1,34 @@
+<div class="tags are-medium">
+  <span 
+    *ngIf="formState | validation: [valueMoreThen, 'income', 1] : [valueMoreThen, 'age', 17]"
+    class="tag is-success is-large"
+  >Current Account</span>
+  <span 
+    *ngIf="formState | validation: [valueMoreThen, 'income', 40000] : [valueMoreThen, 'age', 17]"
+    class="tag is-success is-large"
+  >Current Account Plus</span>
+  <span 
+    *ngIf="formState | validation: [valueLessThen, 'age', 18]"
+    class="tag is-success is-large"
+  >Junior Saver Account</span>
+  <span 
+    *ngIf="(formState | validation: [valueMoreThen, 'age', 17]) && formState.student"
+    class="tag is-success is-large"
+  >Student Account</span>
+  <span 
+    *ngIf="formState | validation: [valueMoreThen, 'age', 64]"
+    class="tag is-success is-large"
+  >Senior Account</span>
+  <span 
+    *ngIf="formState | validation: [valueLessThen, 'income', 12000] : [valueMoreThen, 'age', 17]"
+    class="tag is-success is-large"
+  >Debit Card</span>
+  <span 
+    *ngIf="formState | validation: [valueMoreThen, 'income', 12000] : [valueMoreThen, 'age', 17]"
+    class="tag is-success is-large"
+  >Credit Card</span>
+  <span 
+    *ngIf="formState | validation: [valueMoreThen, 'income', 40000] : [valueMoreThen, 'age', 17]"
+    class="tag is-success is-large"
+  >Gold Credit Card</span>
+</div>

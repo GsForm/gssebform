@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+  <app-input 
+    *ngFor="let inputSetting of inputSettings"
+    [inputSetting]="inputSetting"
+    [control]="form.get(inputSetting.controlName)">
+  </app-input>
+</form>
