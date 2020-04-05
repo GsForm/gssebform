@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ValidationPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: any[]): boolean {
+  transform(value: any, ...args: any[]): boolean {
     if (value && args && args.length) {
       return args.every(arg => {
         const validationFn = arg[0];

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormState } from '../models/form-state.model';
 
 @Component({
   selector: 'app-products-preview',
@@ -7,34 +8,28 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductsPreviewComponent {
 
-  @Input() formState: any;
+  @Input() formState: FormState;
 
   valueMoreThen(value: string, amount: number): boolean {
 
-    if (!value || !amount) {
+    if (value === null || amount === null) {
       return false;
     }
 
-    const lastNum = value.match(/[^-]*$/);
-    const numVal = lastNum[0].replace('+', '');
-
-    if (!isNaN(+numVal) && !isNaN(+amount)) {
-      return +numVal > +amount;
+    if (!isNaN(+value) && !isNaN(+amount)) {
+      return +value > +amount;
     }
     return false;
   }
 
   valueLessThen(value: string, amount: number): boolean {
 
-    if (!value || !amount) {
+    if (value === null || amount === null) {
       return false;
     }
 
-    const lastNum = value.match(/[^-]*$/);
-    const numVal = lastNum[0].replace('+', '');
-
-    if (!isNaN(+numVal) && !isNaN(+amount)) {
-      return +numVal < +amount;
+    if (!isNaN(+value) && !isNaN(+amount)) {
+      return +value < +amount;
     }
     return false;
   }

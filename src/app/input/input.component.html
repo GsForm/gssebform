@@ -1,33 +1,33 @@
 <ng-container [ngSwitch]="inputSetting.type">
 
-  <div class="field" *ngSwitchCase="'select'">
-    <label class="label" [for]="inputSetting.controlName"> 
-      {{ inputSetting.title }}
-    </label>
+  <fieldset class="field" *ngSwitchCase="'select'">
+    <legend class="label">{{ inputSetting.title }}</legend>
     <div class="select is-fullwidth">
       <select [formControl]="control" [id]="inputSetting.controlName">
         <option> {{ inputSetting.placeholder }}</option>
-        <option *ngFor="let val of inputSetting.values">{{ val }}</option>
+        <option *ngFor="let val of inputSetting.values" [value]="val.compareVal">
+          {{ val.displayVal }}
+        </option>
       </select>
     </div>
-  </div>
+  </fieldset>
 
-  <div class="field" *ngSwitchCase="'radio'">
-    <label class="label" [for]="inputSetting.controlName"> 
-      {{ inputSetting.title }}
-    </label>    
+  <fieldset class="field" *ngSwitchCase="'radio'">
+    <legend class="label">{{ inputSetting.title }}</legend>
     <div class="control">
       <div class="radio" *ngFor="let val of inputSetting.values">
-        <input 
-          type="radio" 
-          name="inputSetting.controlName" 
-          [id]="inputSetting.controlName"
-          [value]="val"
-          [formControl]="control"
-        >
-        {{ val }}
+        <label>
+          <input 
+            type="radio" 
+            [name]="inputSetting.controlName" 
+            [id]="inputSetting.controlName"
+            [value]="val.compareVal"
+            [formControl]="control"
+          >
+          {{ val.displayVal }}
+        </label>
       </div>
     </div>
-  </div>
+  </fieldset>
 
 </ng-container>
